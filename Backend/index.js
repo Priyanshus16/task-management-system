@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 4001;
 app.use(cors());
 app.use(express.json());
 
-// ✅ Database Connection
+// Database Connection
 const dbConnection = async () => {
   try {
     await mongoose.connect(process.env.DATABASE_URL);
