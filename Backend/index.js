@@ -91,7 +91,7 @@ app.post("/register", async (req, res) => {
 
 app.post("/newtask", async (req, res) => {
   try {
-    const { title, description, dueDate, userId } = req.body; // ✅ Get userId from request body
+    const { title, description, dueDate, userId } = req.body; 
 
     if (!userId) {
       return res.status(400).json({ message: "User ID is required" });
@@ -187,7 +187,6 @@ app.get("/task/:id", async (req, res) => {
     }
   });
   
-
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
