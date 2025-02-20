@@ -28,7 +28,7 @@ function AddNewTaks() {
         try {
             const userId = localStorage.getItem("userId"); 
             const taskData = { ...formData, userId }; 
-            await axios.post(`/newtask`, taskData);
+            await axios.post(`${process.env.REACT_APP_BACKEND_URL}/newtask`, taskData);
             console.log("API call successful");
             navigate("/dashboard");
         } catch (error) {
