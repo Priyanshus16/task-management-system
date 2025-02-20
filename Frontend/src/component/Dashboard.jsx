@@ -30,7 +30,7 @@ function Dashboard() {
   const getData = async () => {
     try {
       const userId = localStorage.getItem("userId");
-      const response = await axios.get(`http://localhost:4000/dashboard/${userId}`);
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/dashboard/${userId}`);
 
       const sortedTasks = response.data.task
         ? response.data.task.sort((a, b) => {
@@ -58,7 +58,7 @@ function Dashboard() {
     if (!window.confirm("Are you sure you want to delete this task?")) return;
 
     try {
-      await axios.delete(`http://localhost:4000/task/${taskId}`);
+      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/task/${taskId}`);
       setTask(task.filter((task) => task._id !== taskId));
     } catch (error) {
       console.error("Error while deleting task", error);
@@ -72,7 +72,7 @@ function Dashboard() {
     }
 
     try {
-      await axios.put(`http://localhost:4000/task/priority/${taskId}`, { priority: "High" });
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/task/priority/${taskId}`, { priority: "High" });
 
       setTask((prevTasks) =>
         prevTasks.map((task) =>
@@ -86,7 +86,7 @@ function Dashboard() {
 
   const handleCompleteTask = async (taskId) => {
     try {
-      await axios.put(`http://localhost:4000/task/mark-complete/${taskId}`);
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/task/mark-complete/${taskId}`);
 
       setTask((prevTasks) =>
         prevTasks.map((task) =>

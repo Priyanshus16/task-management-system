@@ -14,7 +14,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:4000/login", formData);
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/login`, formData);
       localStorage.setItem("userId", response.data.user.id);
       localStorage.setItem("userName", response.data.user.name);
       alert("Login successful");

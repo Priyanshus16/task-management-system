@@ -14,7 +14,7 @@ function Signup() {
     const handleSignup = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:4000/register", formData);
+            await axios.post(`${process.env.REACT_APP_BACKEND_URL}/register`, formData);
             alert("Signup successful. Please login.");
             navigate("/");
         } catch (error) {

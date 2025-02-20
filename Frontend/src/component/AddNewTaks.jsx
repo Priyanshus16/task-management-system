@@ -22,12 +22,13 @@ function AddNewTaks() {
         }))
     }
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const userId = localStorage.getItem("userId"); 
             const taskData = { ...formData, userId }; 
-            await axios.post("http://localhost:4000/newtask", taskData);
+            await axios.post(`c/newtask`, taskData);
             console.log("API call successful");
             navigate("/dashboard");
         } catch (error) {

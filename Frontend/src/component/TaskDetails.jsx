@@ -13,7 +13,7 @@ function TaskDetails() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/task/${id}`)
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/task/${id}`)
       .then((response) => {
         setTask(response.data.task);
         setLoading(false);
