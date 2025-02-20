@@ -28,7 +28,7 @@ function AddNewTaks() {
         try {
             const userId = localStorage.getItem("userId"); 
             const taskData = { ...formData, userId }; 
-            await axios.post(`c/newtask`, taskData);
+            await axios.post(`/newtask`, taskData);
             console.log("API call successful");
             navigate("/dashboard");
         } catch (error) {
