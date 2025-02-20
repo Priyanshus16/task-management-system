@@ -50,6 +50,11 @@ const taskSchema = new mongoose.Schema({
 
 const Task = mongoose.model("Task", taskSchema);
 
+// for vercel testing
+
+app.get('/', (req, res) => {
+  res.send("Welcome to the Task Management");
+})
 
 // Register
 app.post("/register", async (req, res) => {
